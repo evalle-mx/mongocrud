@@ -1,0 +1,56 @@
+#########################################################################################
+#  Connect to a MongoDB Database Using Node.js
+#  https://www.mongodb.com/blog/post/quick-start-nodejs-mongodb-how-to-get-connected-to-your-database
+#  MongoDB & Node.js: Connecting & CRUD Operations (Part 1 of 4) https://youtu.be/fbYExfeFsI0
+#########################################################################################
+
+
+$ node -v
+$ npm i mongod
+$ npm list mongod
+$ touch demo.js
+
+``
+const { MongoClient } = require('mongodb');
+
+async  function main(){
+
+    const uri = "mongodb+srv://<user>:<Pwd>@<cluster>/sample_training?retryWrites=true&w=majority";
+
+    const client = new MongoClient(uri);
+
+    try {
+        await client.connect();    
+    } catch (error) {
+        console.error(error);
+    }
+    finally {
+        await client.close();
+    }
+}
+
+main().catch(console.error);
+``
+$ node demo.js  [No message]
+
+_________________________________
+``
+...     await client.connect();  
+        await listDatabases(client);
+...
+
+async function listDatabases(client) {
+    const databasesList = await client.db().admin().listDatabases();
+    console.log('Databases:');
+    databasesList.databases.forEach(db => {
+        console.log(`- ${db.name}`);
+    });
+}
+``
+$ node demo.js [Displays all dbs]
+_________________________________
+
+
+
+
+6255c648444642ca45287ae6
