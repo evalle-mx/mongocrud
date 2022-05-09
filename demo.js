@@ -1,5 +1,5 @@
 const { MongoClient } = require('mongodb');
-const { constantes } = require('./constants')
+const { constantes } = require('./data/constants')
 const { username, password, database, cluster, collName} = constantes ;
 
 async  function main(){
@@ -28,5 +28,4 @@ async function listDatabases(client) {
     databasesList.databases.forEach(db => {
         console.log(`- ${db.name}`);
     });
-
 }

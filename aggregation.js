@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 
 //Obtainind values from another file
-const { constantes } = require('./constants')
+const { constantes } = require('./data/constants')
 const { username, password, database, cluster, collName} = constantes ;
 
 async  function main(){

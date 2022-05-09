@@ -54,8 +54,6 @@ $ node demo.js [Displays all dbs]
 _________________________________
 
 
-
-
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +  Aggregation & Data Analysis (Part 2 of 4) 
 +  https://www.mongodb.com/developer/quickstart/node-aggregation-framework/
@@ -64,3 +62,14 @@ _________________________________
 
  + aggregationDemo.js  ($match > $group > $sort > $limit ) using AtlasUI  aggregation tab
  + Import (require) constant without installing dotenv (.env)
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++  Create an ACID Transaction (Part 3 of 4) [Atomicity, Consistency, Isolation, Durability]
++  https://www.mongodb.com/developer/quickstart/node-transactions/
++  https://www.youtube.com/watch?v=bdS03tgD2QQ
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+? transactions are now supported on Standalone Deployments (community, docker etc.)
+ + usersCollection.js creates new collection on sample_airbnb, and creates Index for email
+ 
