@@ -1,9 +1,12 @@
 #########################################################################################
-#  MongoDB: Connect to a MongoDB Database Using Node.js
-#  https://www.mongodb.com/blog/post/quick-start-nodejs-mongodb-how-to-get-connected-to-your-database
-#  MongoDB & Node.js: Connecting & CRUD Operations (Part 1 of 4) https://youtu.be/fbYExfeFsI0
+#  MongoDB: Connect to a MongoDB Database Using Node.js                                 #
 #########################################################################################
 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++  Connecting & CRUD Operations (Part 1 of 4) 
++  https://www.mongodb.com/blog/post/quick-start-nodejs-mongodb-how-to-get-connected-to-your-database
++  https://youtu.be/fbYExfeFsI0
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 $ node -v
 $ npm i mongod
@@ -53,4 +56,11 @@ _________________________________
 
 
 
-6255c648444642ca45287ae6
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++  Aggregation & Data Analysis (Part 2 of 4) 
++  https://www.mongodb.com/developer/quickstart/node-aggregation-framework/
++  https://www.youtube.com/watch?v=iz37fDe1XoM
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ + aggregationDemo.js  ($match > $group > $sort > $limit ) using AtlasUI  aggregation tab
+ + Import (require) constant without installing dotenv (.env)

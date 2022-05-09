@@ -1,8 +1,11 @@
 const { MongoClient } = require('mongodb');
+const { constantes } = require('./constants')
+const { username, password, database, cluster, collName} = constantes ;
 
 async  function main(){
 
-    const uri = "mongodb+srv://<username>:<password>@<your-cluster-url>/sample_airbnb?retryWrites=true&w=majority";
+    const uri = `mongodb+srv://${username}:${password}@${cluster}/${database}?retryWrites=true&w=majority`;
+    // "mongodb+srv://<username>:<password>@<your-cluster-url>/sample_airbnb?retryWrites=true&w=majority";    
 
     const client = new MongoClient(uri);
 
