@@ -1,4 +1,5 @@
 const { MongoClient } = require('mongodb');
+/* Importing constants as a file */
 const { constantes } = require('./data/constants')
 const { username, password, database, cluster, collName} = constantes ;
 

@@ -1,6 +1,11 @@
-#########################################################################################
-#  MongoDB: Connect to a MongoDB Database Using Node.js                                 #
-#########################################################################################
+###########################################################################################################
+#  MongoDB: Connect to a MongoDB Database Using Node.js (MongoClient)   [Lauren Schaefer]         
+#  https://www.mongodb.com/blog/post/quick-start-nodejs-mongodb-how-to-get-connected-to-your-database 
+###########################################################################################################
+
+
+### RUN ####
+
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +  Connecting & CRUD Operations (Part 1 of 4) 
@@ -12,6 +17,10 @@ $ node -v
 $ npm i mongod
 $ npm list mongod
 $ touch demo.js
+
+
+# Refresh dependencies
+$ npm install
 
 ``
 const { MongoClient } = require('mongodb');
