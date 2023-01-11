@@ -1,8 +1,8 @@
 exports.constantes= {
-    username: '<username>',
-    password:'<password>',
-    database : '<database>',
-    cluster : 'cluster.abcde.mongodb.net',
+    username: 'm001-student',
+    password:'m001-mongodb-basics',
+    database : 'sample_training',
+    cluster : 'sandbox.icm9w.mongodb.net',
     collName : 'listingsAndReviews'
 };
 /*

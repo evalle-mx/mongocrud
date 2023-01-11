@@ -5,7 +5,7 @@
 
 
 ### RUN ####
-
+$ node demo.js [to Displays all dbs]
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +  Connecting & CRUD Operations (Part 1 of 4) 
@@ -59,7 +59,7 @@ async function listDatabases(client) {
     });
 }
 ``
-$ node demo.js [Displays all dbs]
+$ node <fileName>.js [Displays all dbs]
 _________________________________
 
 
