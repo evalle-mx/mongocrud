@@ -5,32 +5,65 @@
 
 
 ### RUN ####
+# Refresh dependencies
+$ npm install
+
 $ node demo.js [to Displays all dbs]
+
+
+Summary [Demos are working with sample_training.listingsAndReviews namespace]:
+1_CRUD/
+% demo.js. Display a list of DB's in cluster (Test connection)
+Create [create.js]:
+ - createListing. Create a new document from object
+ - createMultipleListings. Create multiple documents from array
+
+Read [read.js]: 
+ - findOneListingByName. Display document with matching name
+ - findListingsWithMinimumBedroomsBathroomsAndMostRecentReviews. Display documents that matches all filters
+
+Update [update.js]:
+ - findListingByName [Read], finds document that matches field (name)
+ - updateListingByName. Updates  when param (name) matches
+ - upsertListingByName. Creates or updates when param (name) matches
+ - updateAllListingsToHavePropertyType. Updates only the documents that does NOT HAVE a field (property_type)
+
+Delete [delete.js]:
+ - deleteListingByName. Deletes document that matches field (name)
+ - deleteListingsScrapedBeforeDate. Deletes documents that date-field is Less Than [$lt] given date (last_scraped)
+
+
+2_Aggregation
+- aggregation.js 
+  > $match: 1 bedroom, Sidney-Australia, with a valid suburb ($exists & $ne '') in an Entire home/apt
+  > $group: grouped by suburb-ID and Average Price ($avg) for group (Temporal field)
+  > $sort: Order by 'averagePrice' in ascending order (positive)
+  > $limit: Return only a max number of documents 
+
+
+  3_ACIDTransactions
+  - usersCollection.js > Create new collection to use in transaction
+  - transactions.js :
+    > createReservationDoc. Creates a simple Document (object)
+    > createReservation. Transaction: search user, validate no booking, creates reservation (modify listingsAndReviews)
+
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +  Connecting & CRUD Operations (Part 1 of 4) 
 +  https://www.mongodb.com/blog/post/quick-start-nodejs-mongodb-how-to-get-connected-to-your-database
 +  https://youtu.be/fbYExfeFsI0
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+### INITIAL STEPS ####
 $ node -v
 $ npm i mongodb
 $ npm list mongod
 $ touch demo.js
 
-
-# Refresh dependencies
-$ npm install
-
 ``
 const { MongoClient } = require('mongodb');
-
 async  function main(){
-
     const uri = "mongodb+srv://<user>:<Pwd>@<cluster>/sample_training?retryWrites=true&w=majority";
-
     const client = new MongoClient(uri);
-
     try {
         await client.connect();    
     } catch (error) {
@@ -50,15 +83,6 @@ _________________________________
 ...     await client.connect();  
         await listDatabases(client);
 ...
-
-async function listDatabases(client) {
-    const databasesList = await client.db().admin().listDatabases();
-    console.log('Databases:');
-    databasesList.databases.forEach(db => {
-        console.log(`- ${db.name}`);
-    });
-}
-``
 $ node <fileName>.js [Displays all dbs]
 _________________________________
 

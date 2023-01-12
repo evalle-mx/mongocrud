@@ -1,5 +1,5 @@
 const { MongoClient } = require('mongodb');
-const { constantes } = require('./data/constants')
+const { constantes } = require('../data/constants')
 const { username, password, database, cluster, collName} = constantes ;
 
 /**

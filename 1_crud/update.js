@@ -22,31 +22,31 @@ async function main() {
 
         // Make the appropriate DB calls
 
-        // UPDATE
+        // UPDATE (Common)
         // Print the Infinite Views listing
         await findListingByName(client, "Infinite Views");
         // Update the Infinite Views listing to have 6 bedrooms and 8 beds 
         await updateListingByName(client, "Infinite Views", { bedrooms: 6, beds: 8 });
         // Print the updated Infinite Views listing
-        await findListingByName(client, "Infinite Views");
+        await findListingByName(client, "Infinite Views"); //*/
 
-        // UPSERT
-        // Check if a listing named Cozy Cottage is in the db
+        // UPSERT (create or update)
+        // 1) Check if a listing named Cozy Cottage is in the db
         await findListingByName(client, "Cozy Cottage");
-        // Upsert the Cozy Cottage listing
+        // 2) Upsert the Cozy Cottage listing
         await upsertListingByName(client, "Cozy Cottage", { name: "Cozy Cottage", bedrooms: 2, bathrooms: 1 });
-        // Print the details of the Cozy Cottage listing
+        // 3) Print the details of the Cozy Cottage listing
         await findListingByName(client, "Cozy Cottage");
-        // Upsert the Cozy Cottage listing
+        // 4) Upsert the Cozy Cottage listing
         await upsertListingByName(client, "Cozy Cottage", { beds: 2 });
-        // Print the details of the Cozy Cottage listing
-        await findListingByName(client, "Cozy Cottage");
+        // 5) Print the details of the Cozy Cottage listing
+        await findListingByName(client, "Cozy Cottage"); //*/
 
-        // UPDATE MANY
+        // UPDATE MANY (multiple)
         // Update all listings so they have a property type
         await updateAllListingsToHavePropertyType(client);
         // Print the details of the Cozy Cottage listing that should now have a property type
-        await findListingByName(client, "Cozy Cottage");
+        await findListingByName(client, "Cozy Cottage");//*/
 
     } finally {
         // Close the connection to the MongoDB cluster

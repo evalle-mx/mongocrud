@@ -1,7 +1,7 @@
 exports.constantes= {
     username: 'm001-student',
     password:'m001-mongodb-basics',
-    database : 'sample_training',
+    database : 'sample_airbnb',
     cluster : 'sandbox.icm9w.mongodb.net',
     collName : 'listingsAndReviews'
 };

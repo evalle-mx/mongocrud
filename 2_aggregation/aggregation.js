@@ -1,20 +1,19 @@
 const { MongoClient } = require('mongodb');
 
 //Obtain values from another file
-const { constantes } = require('./data/constants')
+const { constantes } = require('../data/constants')
 const { username, password, database, cluster, collName} = constantes ;
 
 async  function main(){
 
-    const uri = `mongodb+srv://${username}:${password}@${cluster}/${database}?retryWrites=true&w=majority`;
-    // "mongodb+srv://<username>:<password>@<your-cluster-url>/sample_airbnb?retryWrites=true&w=majority";    
+    const uri = `mongodb+srv://${username}:${password}@${cluster}/${database}?retryWrites=true&w=majority`;   
 
     const client = new MongoClient(uri);
 
     try {
         await client.connect();  
-        //await listDatabases(client);
-        await printCheapestSuburns(client, 'Australia', 'Sydney', 10)
+        // await listDatabases(client);  /* to test, copy the code from demo.js */
+        await printCheapestSuburns(client, 'Australia', 'Sydney', 10);  // 'Australia', 'Sydney', 10 | 
     } catch (error) {
         console.error(error);
     }
@@ -23,15 +22,7 @@ async  function main(){
     }
 }
 
-main().catch(console.error);
-
-async function listDatabases(client) {
-    const databasesList = await client.db().admin().listDatabases();
-    console.log('Databases:');
-    databasesList.databases.forEach(db => {
-        console.log(`- ${db.name}`);
-    });
-}
+main().catch(console.error); //<== CALLING MAIN APP
 
 //I) Filter: 1 bedroom listing, Sydney Australia's market, room type = 'Entire home / apartment', suburb exists (not empty)
 /* query Using Aggregation Pipeline tab in ATLAS UI 
@@ -65,6 +56,8 @@ async function listDatabases(client) {
 /*
 >> $limit
   10
+
+V) export from UI to code, and create a function with this pipeline
 */
 async function printCheapestSuburns(client, country, market, maxNumberToPrint) {
     const pipeline = [
