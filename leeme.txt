@@ -1,6 +1,7 @@
 ###########################################################################################################
 #  MongoDB: Connect to a MongoDB Database Using Node.js (MongoClient)   [Lauren Schaefer]         
 #  https://www.mongodb.com/blog/post/quick-start-nodejs-mongodb-how-to-get-connected-to-your-database 
+#  https://github.com/mongodb-developer/nodejs-quickstart
 ###########################################################################################################
 
 
@@ -41,11 +42,19 @@ Delete [delete.js]:
   > $limit: Return only a max number of documents 
 
 
-  3_ACIDTransactions
-  - usersCollection.js > Create new collection to use in transaction
+3_ACIDTransactions
+  - usersCollection.js > reates new collection on sample_airbnb, and creates Index for email
   - transactions.js :
     > createReservationDoc. Creates a simple Document (object)
     > createReservation. Transaction: search user, validate no booking, creates reservation (modify listingsAndReviews)
+
+4_chStreamsTriggers
+ - changeStreams.js Shows 3 stream change implementations:
+    > monitorListingsUsingEventEmitter
+    > monitorListingsUsingHasNext
+    > monitorListingsUsingStreamAPI
+ - changeStreamsTestData.js Create and update Listings for test
+ - deleteTests.js Deletes documents created 
 
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -103,6 +112,12 @@ _________________________________
 +  https://www.youtube.com/watch?v=bdS03tgD2QQ
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-? transactions are now supported on Standalone Deployments (community, docker etc.)
+ + transactions are not supported on Standalone Deployments (community, docker etc.)
  + usersCollection.js creates new collection on sample_airbnb, and creates Index for email
  
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++  Change Streams & Triggers (Part 4 of 4)
++  https://www.mongodb.com/developer/languages/javascript/nodejs-change-streams-triggers/
++  https://www.youtube.com/watch?v=9LA7_CSyZb8
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+

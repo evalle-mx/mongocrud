@@ -1,0 +1,29 @@
+## https://youtu.be/9LA7_CSyZb8?t=1371
+
+1) Go to Service > Triggers in UI
+
+2) Select the Trigger type, for similiar change-stream behavior, select Database
+
+3) Set a name and Enable the Trigger
+
+4) Select Datasource, cluster, database and collection name
+
+5) Check the Operation observed (Insert, update, delete, replace)
+
+6) Enable the Full Document
+
+7) add the function code:
+``
+exports = function(changeEvent) {
+  console.log(JSON.stringify(changeEvent.fullDocument));
+};
+``
+
+8) Click on advance and Add the Match expression that would be the equivalent to pipeline in this code
+``
+{"fullDocument.address.country":"Australia","fullDocument.address.market":"Sydney"}
+``
+
+9) Run the changeStreamsTestData.js to generate testing data
+
+10) when we create a trigger, Atlas will create a new Realm/App Service application ("Triggers"), open this and ONLY the listings Created in Sidney will be in the Log

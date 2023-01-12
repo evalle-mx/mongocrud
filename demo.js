@@ -6,8 +6,7 @@ const { username, password, database, cluster, collName} = constantes ;
 async  function main(){
 
     const uri = `mongodb+srv://${username}:${password}@${cluster}/${database}?retryWrites=true&w=majority`;
-    // "mongodb+srv://<username>:<password>@<your-cluster-url>/sample_airbnb?retryWrites=true&w=majority";    
-
+    
     const client = new MongoClient(uri);
 
     try {
@@ -21,7 +20,7 @@ async  function main(){
     }
 }
 
-main().catch(console.error);
+main().catch(console.error); //<== CALLING MAIN APP
 
 async function listDatabases(client) {
     const databasesList = await client.db().admin().listDatabases();
