@@ -1,9 +1,9 @@
 exports.constantes= {
     username: 'm001-student',
     password:'m001-mongodb-basics',
-    database : 'sample_airbnb',
+    database : '',
     cluster : 'sandbox.icm9w.mongodb.net',
-    collName : 'listingsAndReviews'
+    collName : ''
 };
 /*
 const username = '<username>';    //process.env.DATABASE_USER;
